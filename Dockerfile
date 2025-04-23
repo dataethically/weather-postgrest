@@ -1,15 +1,9 @@
 FROM postgrest/postgrest:latest
 
-# Switch to root user
-USER root
-
-# Copy configuration file
+# Copy configuration file to a writable directory
 COPY postgrest.conf /etc/postgrest.conf
 
-# Set permissions for the config file (optional but safe)
+# Set permissions (optional, but ensures the file is readable)
 RUN chmod 644 /etc/postgrest.conf
-
-# Switch back to the postgrest user (optional, but safer)
-USER postgrest
 
 EXPOSE 3000
