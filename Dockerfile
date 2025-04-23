@@ -1,9 +1,9 @@
 FROM postgrest/postgrest:latest
 
-# Copy configuration file to a writable directory
-COPY postgrest.conf /etc/postgrest.conf
+# Copy config to a user-writable directory
+COPY postgrest.conf /app/postgrest.conf
 
-# Set permissions (optional, but ensures the file is readable)
-RUN chmod 644 /etc/postgrest.conf
+# Set the config path
+ENV PGRST_CONF=/app/postgrest.conf
 
 EXPOSE 3000
