@@ -1,9 +1,10 @@
 FROM postgrest/postgrest:latest
 
-# Copy config to a user-writable directory
-COPY postgrest.conf /app/postgrest.conf
+# Copy configuration file
+COPY postgrest.conf /etc/postgrest.conf
 
-# Set the config path
-ENV PGRST_CONF=/app/postgrest.conf
+# Set the config file environment variable
+ENV PGRST_CONF=/etc/postgrest.conf
 
+# Expose the port
 EXPOSE 3000
